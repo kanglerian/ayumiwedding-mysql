@@ -1,0 +1,115 @@
+<div class="container">
+    <audio autoplay>
+        <source src="mp3/koplo.mp3" type="audio/mpeg">
+    </audio> 
+    <!-- Outer Row -->
+    <% if (content.length == 0) { %>
+     
+        <div class="row justify-content-center" data-aos="fade-up">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+    
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+    
+                        <div class="row p-5">
+                            <div class="col-12 text-center">
+                                <h3 class="font-weight-bold" data-aos="fade-down" data-aos-delay="200">Data tidak ditemukan.</h3>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    <% }else{ %>
+        <div class="row justify-content-center" data-aos="fade-up">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+    
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+    
+                        <div class="row pt-5 pb-2">
+                            <div class="col-12 text-center">
+                                <h3 class="font-weight-bold" data-aos="fade-down" data-aos-delay="200">Calon Pengantin</h3>
+                            </div>
+                        </div>
+    
+                        <div class="row justify-content-between p-5">
+                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                                <img src="../../img/undraw_profile_3.svg" width="150px" class="mb-2">
+                                <h5 class="font-weight-bold"><%= content[0].nama_wanita %></h5>
+                                <p class="mb-3">Putri pertama dari Bapak <%= content[0].nama_bapak_wanita %> dan Ibu <%= content[0].nama_ibu_wanita %>.</p>
+                            </div>
+                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="250">
+                                <img src="../../img/undraw_profile_2.svg" width="150px" class="mb-2">
+                                <h5 class="font-weight-bold"><%= content[0].nama_pria %></h5>
+                                <p>Putra pertama dari Bapak <%= content[0].nama_bapak_pria %> dan Ibu <%= content[0].nama_ibu_pria %>.</p>
+                            </div>
+                        </div>
+    
+                        <div class="row text-center bg-success text-white p-5">
+                            <div class="col-12">
+                                <p data-aos="fade-down" data-aos-delay="250">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</p>
+                                <p data-aos="fade-up" data-aos-delay="300">"Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir"<br>(Surat Ar-Ruum:21)</p>
+                            </div>
+                        </div>
+    
+                        <div class="row justify-content-center text-center pt-5 pb-5">
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="0">
+                                <h3 class="font-weight-bold">Acara Akan Dilaksanakan</h3>
+                            </div>
+                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="100">
+                                <h5>57 Hari</h5>
+                            </div>
+                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="150">
+                                <h5 class="font-weight-bold">12<br>Jam</h5>
+                            </div>
+                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="200">
+                                <h5 class="font-weight-bold">12<br>Menit</h5>
+                            </div>
+                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="250">
+                                <h5 class="font-weight-bold">12<br>Detik</h5>
+                            </div>
+                            <div class="col-12 mt-5" data-aos="fade-up" data-aos-delay="300">
+                                <p>Minggu, 17 Juli 2022</p>
+                            </div>
+                        </div>
+    
+                        <div class="row justify-content-center text-center pt-5 pb-5 bg-primary text-white">
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="0">
+                                <h3 class="font-weight-bold">Akad Nikah</h3>
+                            </div>
+                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="100">
+                                <h6><%= content[0].akad_tanggal %></h6>
+                                <h6><%= content[0].akad_waktu %></h6>
+                                <h6><%= content[0].akad_tempat %></h6>
+                            </div>
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="150">
+                                <h3 class="font-weight-bold">Resepsi</h3>
+                            </div>
+                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="200">
+                                <h6><%= content[0].resepsi_tanggal %></h6>
+                                <h6><%= content[0].resepsi_waktu %></h6>
+                                <h6><%= content[0].resepsi_tempat %></h6>
+                            </div>
+                        </div>
+                        
+                        <div class="row" data-aos="fade-down" data-aos-delay="100">
+                            <div class="col-12 text-center">
+                                <iframe src="<%= content[0].lokasi_google_maps %>" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+    <% } %>
+
+</div>
