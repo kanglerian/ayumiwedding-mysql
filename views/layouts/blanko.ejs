@@ -9,7 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ayumi Wedding</title>
+    <title>
+      <% if (content.length === 0) { %>
+        Ayumi Wedding
+      <% } else { %>
+        <%= content[0].nama_pria %> & <%= content[0].nama_wanita %> | Ayumi Wedding
+      <%}%>
+    </title>
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
