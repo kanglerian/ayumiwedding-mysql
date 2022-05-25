@@ -6,6 +6,8 @@ const expressLayouts = require('express-ejs-layouts');
 const { redirect } = require('express/lib/response');
 const res = require('express/lib/response');
 
+var moment = require('moment');
+
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
@@ -59,7 +61,7 @@ app.put('/status', (req, res) => {
 });
 
 app.put('/update', (req, res) => {
-    const sql = `UPDATE data_clients SET url = '${req.body.url}', nama_pria = '${req.body.nama_pria}', nama_bapak_pria = '${req.body.nama_bapak_pria}', nama_ibu_pria = '${req.body.nama_ibu_pria}', nama_wanita = '${req.body.nama_wanita}', nama_bapak_wanita = '${req.body.nama_bapak_wanita}', nama_ibu_wanita = '${req.body.nama_ibu_wanita}', akad_tanggal = '${req.body.akad_tanggal}', akad_waktu = '${req.body.akad_waktu}', akad_tempat = '${req.body.akad_tempat}', resepsi_tanggal = '${req.body.resepsi_tanggal}', resepsi_waktu = '${req.body.resepsi_waktu}', resepsi_tempat = '${req.body.resepsi_tempat}', lokasi_google_maps = '${req.body.lokasi_google_maps}', status = '${req.body.status}' WHERE id = ${req.body.id}`;
+    const sql = `UPDATE data_clients SET url = '${req.body.url}', nama_pria = '${req.body.nama_pria}', urutan_pria = '${req.body.urutan_pria}', nama_bapak_pria = '${req.body.nama_bapak_pria}', nama_ibu_pria = '${req.body.nama_ibu_pria}', nama_wanita = '${req.body.nama_wanita}', urutan_wanita = '${req.body.urutan_wanita}', nama_bapak_wanita = '${req.body.nama_bapak_wanita}', nama_ibu_wanita = '${req.body.nama_ibu_wanita}', akad_tanggal = '${req.body.akad_tanggal}', akad_waktu = '${req.body.akad_waktu}', akad_tempat = '${req.body.akad_tempat}', resepsi_tanggal = '${req.body.resepsi_tanggal}', resepsi_waktu = '${req.body.resepsi_waktu}', resepsi_tempat = '${req.body.resepsi_tempat}', lokasi_google_maps = '${req.body.lokasi_google_maps}', status = '${req.body.status}' WHERE id = ${req.body.id}`;
     con.query(sql, (err, result) => {
         if(err){
             res.send(err);
@@ -77,8 +79,7 @@ app.get('/registrasi', (req, res) => {
 });
 
 app.post('/tambah', (req, res) => {
-    const sql = `INSERT INTO data_clients (id, url, nama_pria, nama_bapak_pria, nama_ibu_pria, nama_wanita, nama_bapak_wanita, nama_ibu_wanita, akad_tanggal, akad_waktu, akad_tempat, resepsi_tanggal, resepsi_waktu, resepsi_tempat, lokasi_google_maps, status) VALUES (NULL, '${req.body.url}', '${req.body.nama_pria}', '${req.body.nama_bapak_pria}', '${req.body.nama_ibu_pria}', '${req.body.nama_wanita}', '${req.body.nama_bapak_wanita}', '${req.body.nama_ibu_wanita}', '${req.body.akad_tanggal}', '${req.body.akad_waktu}', '${req.body.akad_tempat}', '${req.body.resepsi_tanggal}', '${req.body.resepsi_waktu}', '${req.body.resepsi_tempat}', '${req.body.lokasi_google_maps}', '${req.body.status}')`;
-    // res.send(sql);
+    const sql = `INSERT INTO data_clients (id, url, nama_pria, urutan_pria, nama_bapak_pria, nama_ibu_pria, nama_wanita, urutan_wanita, nama_bapak_wanita, nama_ibu_wanita, akad_tanggal, akad_waktu, akad_tempat, resepsi_tanggal, resepsi_waktu, resepsi_tempat, lokasi_google_maps, status) VALUES (NULL, '${req.body.url}', '${req.body.nama_pria}', '${req.body.urutan_pria}', '${req.body.nama_bapak_pria}', '${req.body.nama_ibu_pria}', '${req.body.nama_wanita}', '${req.body.urutan_wanita}', '${req.body.nama_bapak_wanita}', '${req.body.nama_ibu_wanita}', '${req.body.akad_tanggal}', '${req.body.akad_waktu}', '${req.body.akad_tempat}', '${req.body.resepsi_tanggal}', '${req.body.resepsi_waktu}', '${req.body.resepsi_tempat}', '${req.body.lokasi_google_maps}', '${req.body.status}')`;
     con.query(sql, (err, result) => {
         if(err){
             res.send(req.body);
@@ -86,7 +87,6 @@ app.post('/tambah', (req, res) => {
             res.redirect('/invitation');
         }
     });
-    // res.send(req.body);
 });
 
 app.get('/invitation', (req, res) => {
@@ -112,7 +112,8 @@ app.get('/detail/:id', (req, res) => {
         res.render('detail', {
             title: 'Detail Data',
             layout: 'layouts/dashboard',
-            content: result[0]
+            content: result[0],
+            moment
         });
     });
 });
