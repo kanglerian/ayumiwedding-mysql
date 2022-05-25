@@ -58,6 +58,17 @@ app.put('/status', (req, res) => {
     });
 });
 
+app.put('/update', (req, res) => {
+    const sql = `UPDATE data_clients SET url = '${req.body.url}', nama_pria = '${req.body.nama_pria}', nama_bapak_pria = '${req.body.nama_bapak_pria}', nama_ibu_pria = '${req.body.nama_ibu_pria}', nama_wanita = '${req.body.nama_wanita}', nama_bapak_wanita = '${req.body.nama_bapak_wanita}', nama_ibu_wanita = '${req.body.nama_ibu_wanita}', akad_tanggal = '${req.body.akad_tanggal}', akad_waktu = '${req.body.akad_waktu}', akad_tempat = '${req.body.akad_tempat}', resepsi_tanggal = '${req.body.resepsi_tanggal}', resepsi_waktu = '${req.body.resepsi_waktu}', resepsi_tempat = '${req.body.resepsi_tempat}', lokasi_google_maps = '${req.body.lokasi_google_maps}', status = '${req.body.status}' WHERE id = ${req.body.id}`;
+    con.query(sql, (err, result) => {
+        if(err){
+            res.send(err);
+        }else{
+            res.redirect('/invitation');
+        }
+    });
+});
+
 app.get('/registrasi', (req, res) => {
     res.render('tambah', {
         title: 'Tambah Data Baru',
@@ -91,6 +102,17 @@ app.get('/invitation', (req, res) => {
             contacts: result[0],    
             aktif: result[1],
             tidakAktif: result[2]
+        });
+    });
+});
+
+app.get('/detail/:id', (req, res) => {
+    const sql = `SELECT * FROM data_clients WHERE id = "${req.params.id}"`;
+    con.query(sql, (err, result) => {
+        res.render('detail', {
+            title: 'Detail Data',
+            layout: 'layouts/dashboard',
+            content: result[0]
         });
     });
 });

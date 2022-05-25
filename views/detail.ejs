@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <form action="/tambah" method="POST">
-                
+            <form action="/update?_method=PUT" method="POST">
+                <input type="hidden" name="id" value="<%= content.id %>">
                 <div class="row mb-4">
                     <div class="col-12">
                         <div class="form-row align-items-center">
@@ -13,7 +13,7 @@
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-map-marked-alt"></i></div>
                                   </div>
-                                  <input type="text" class="form-control" name="lokasi_google_maps" placeholder="URL">
+                                  <input type="text" class="form-control" value="<%= content.lokasi_google_maps %>" name="lokasi_google_maps" placeholder="URL">
                                 </div>
                               </div>
                             <div class="col-auto">
@@ -22,17 +22,17 @@
                                 <div class="input-group-prepend">
                                   <div class="input-group-text"><i class="fas fa-external-link-alt"></i></div>
                                 </div>
-                                <input type="text" class="form-control" name="url" placeholder="URL">
+                                <input type="text" class="form-control" name="url" value="<%= content.url %>" placeholder="URL">
                               </div>
                             </div>
                             <div class="col-auto">
-                              <label class="sr-only" for="inlineFormInputGroup">Status</label>
+                              <label class="sr-only">Status</label>
                               <div class="input-group mb-2">
                                 <div class="input-group-prepend">
-                                  <div class="input-group-text"><i class="fas fa-toggle-on"></i></div>
+                                  <div class="input-group-text <%= content.status == 1 ? 'bg-success' : 'bg-danger' %> text-white"><i class="fas fa-toggle-<%= content.status == 1 ? 'on' : 'off' %>"></i></div>
                                 </div>
                                 <select name="status" class="form-control">
-                                    <option selected>Pilih</option>
+                                    <option value="<%= content.status %>" selected><%= content.status == 1 ? 'Aktif' : 'Tidak Aktif' %></option>
                                     <option value="1">Aktif</option>
                                     <option value="0">Tidak Aktif</option>
                                 </select>
@@ -56,15 +56,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Pria</label>
-                                    <input type="text" class="form-control" name="nama_pria">
+                                    <input type="text" class="form-control" value="<%= content.nama_pria %>" name="nama_pria">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Bapak Pria</label>
-                                    <input type="text" class="form-control" name="nama_bapak_pria">
+                                    <input type="text" class="form-control" value="<%= content.nama_bapak_pria %>" name="nama_bapak_pria">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Ibu Pria</label>
-                                    <input type="text" class="form-control" name="nama_ibu_pria">
+                                    <input type="text" class="form-control" value="<%= content.nama_ibu_pria %>" name="nama_ibu_pria">
                                 </div>
                             </div>
                         </div>
@@ -79,15 +79,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Nama Wanita</label>
-                                    <input type="text" class="form-control" name="nama_wanita">
+                                    <input type="text" class="form-control" value="<%= content.nama_wanita %>" name="nama_wanita">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Bapak Wanita</label>
-                                    <input type="text" class="form-control" name="nama_bapak_wanita">
+                                    <input type="text" class="form-control" value="<%= content.nama_bapak_wanita %>" name="nama_bapak_wanita">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Ibu Wanita</label>
-                                    <input type="text" class="form-control" name="nama_ibu_wanita">
+                                    <input type="text" class="form-control" value="<%= content.nama_ibu_wanita %>" name="nama_ibu_wanita">
                                 </div>
                             </div>
                         </div>
@@ -102,15 +102,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Tanggal Akad</label>
-                                    <input type="text" class="form-control" name="akad_tanggal">
+                                    <input type="text" class="form-control" value="<%= content.akad_tanggal %>" name="akad_tanggal">
                                 </div>
                                 <div class="form-group">
                                     <label>Waktu Akad</label>
-                                    <input type="text" class="form-control" name="akad_waktu">
+                                    <input type="text" class="form-control" value="<%= content.akad_waktu %>" name="akad_waktu">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Akad</label>
-                                    <input type="text" class="form-control" name="akad_tempat">
+                                    <input type="text" class="form-control" value="<%= content.akad_tempat %>" name="akad_tempat">
                                 </div>
                             </div>
                         </div>
@@ -125,15 +125,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Tanggal Resepsi</label>
-                                    <input type="text" class="form-control" name="resepsi_tanggal">
+                                    <input type="text" class="form-control" value="<%= content.resepsi_tanggal %>" name="resepsi_tanggal">
                                 </div>
                                 <div class="form-group">
                                     <label>Waktu Resepsi</label>
-                                    <input type="text" class="form-control" name="resepsi_waktu">
+                                    <input type="text" class="form-control" value="<%= content.resepsi_waktu %>" name="resepsi_waktu">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Resepsi</label>
-                                    <input type="text" class="form-control" name="resepsi_tempat">
+                                    <input type="text" class="form-control" value="<%= content.resepsi_tempat %>" name="resepsi_tempat">
                                 </div>
                             </div>
                         </div>
