@@ -32,69 +32,97 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
     
-                        <div class="row pt-5 pb-2">
-                            <div class="col-12 text-center">
-                                <h3 class="font-weight-bold" data-aos="fade-down" data-aos-delay="200">Calon Pengantin</h3>
+                        <div class="row text-white">
+                            <div class="col-12 text-center bg-danger pt-4 pb-3">
+                                <h3 class="font-weight-bold" data-aos="fade-down" data-aos-delay="200">The Wedding Of</h3>
                             </div>
                         </div>
-    
+
                         <div class="row justify-content-between p-5">
-                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                                <img src="../../img/undraw_profile_3.svg" width="150px" class="mb-2">
-                                <h5 class="font-weight-bold"><%= content[0].nama_wanita %></h5>
-                                <p class="mb-3">Putri pertama dari Bapak <%= content[0].nama_bapak_wanita %> dan Ibu <%= content[0].nama_ibu_wanita %>.</p>
+                            <div class="col-md-12 text-center">
+                                <h2 class="font-weight-bold" data-aos="fade-up" data-aos-delay="200"><%= content[0].nama_wanita %></h2>
+                                <h3 class="my-3" data-aos="fade-up" data-aos-delay="250">&</h3>
+                                <h2 class="font-weight-bold" data-aos="fade-up" data-aos-delay="300"><%= content[0].nama_pria %></h2>
                             </div>
-                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="250">
-                                <img src="../../img/undraw_profile_2.svg" width="150px" class="mb-2">
-                                <h5 class="font-weight-bold"><%= content[0].nama_pria %></h5>
-                                <p>Putra pertama dari Bapak <%= content[0].nama_bapak_pria %> dan Ibu <%= content[0].nama_ibu_pria %>.</p>
+                            <div class="col-md-6 text-center">
+                                <h5 class="font-weight-bold"></h5>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <h5></h5>
                             </div>
                         </div>
     
                         <div class="row text-center bg-success text-white p-5">
                             <div class="col-12">
                                 <p data-aos="fade-down" data-aos-delay="250">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</p>
-                                <p data-aos="fade-up" data-aos-delay="300">"Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir"<br>(Surat Ar-Ruum:21)</p>
+                                <p data-aos="fade-up" data-aos-delay="300">"Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir"<br>(QS Ar-Ruum: 21)</p>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-between p-5">
+                            <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                                <p>Assalamu'alaikum Warahmatullaahi Wabarakatuh</p>
+                                <p>Maha Suci Allah Subhanahu wa Ta'ala yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah ridhoilah pernikahan kami:</p>
+                            </div>
+                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                                <img src="../../img/undraw_profile_3.svg" width="150px" class="mb-2">
+                                <h5 class="font-weight-bold"><%= content[0].nama_wanita %></h5>
+                                <p class="mb-3">Putri ke-<%= content[0].urutan_wanita %> dari Bapak <%= content[0].nama_bapak_wanita %> dan Ibu <%= content[0].nama_ibu_wanita %>.</p>
+                            </div>
+                            <div class="col-md-6 text-center" data-aos="fade-up" data-aos-delay="250">
+                                <img src="../../img/undraw_profile_2.svg" width="150px" class="mb-2">
+                                <h5 class="font-weight-bold"><%= content[0].nama_pria %></h5>
+                                <p>Putra ke-<%= content[0].urutan_pria %> dari Bapak <%= content[0].nama_bapak_pria %> dan Ibu <%= content[0].nama_ibu_pria %>.</p>
                             </div>
                         </div>
     
-                        <div class="row justify-content-center text-center pt-5 pb-5">
+                        
+                        <h1 id="demo"></h1>
+                        <div class="row justify-content-center text-center pt-5 pb-2 bg-primary">
                             <div class="col-12" data-aos="fade-up" data-aos-delay="0">
-                                <h3 class="font-weight-bold">Acara Akan Dilaksanakan</h3>
+                                <h3 class="font-weight-bold text-white"">Yang akan dilaksanakan pada:</h3>
                             </div>
-                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="100">
-                                <h5>57 Hari</h5>
+                            <div class="col-12">
+                                <div class="row justify-content-between mt-2 p-5">
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="card p-5">
+                                            <h3 class="font-weight-bold mb-3">Akad</h3>
+                                            <h6><span id="tanggal"><%= moment(content[0].akad_tanggal).format('LL'); %></span></h6>
+                                            <h6><span id="waktu"><%= content[0].akad_waktu %></span></h6>
+                                            <h6><%= content[0].akad_tempat %></h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="card p-5">
+                                            <h3 class="font-weight-bold mb-3">Resepsi</h3>
+                                            <h6><%= moment(content[0].resepsi_tanggal).format('LL'); %></h6>
+                                            <h6><span><%= content[0].resepsi_waktu %></span> WIB</h6>
+                                            <p><%= content[0].resepsi_tempat %></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="150">
-                                <h5 class="font-weight-bold">12<br>Jam</h5>
-                            </div>
-                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="200">
-                                <h5 class="font-weight-bold">12<br>Menit</h5>
-                            </div>
-                            <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="250">
-                                <h5 class="font-weight-bold">12<br>Detik</h5>
-                            </div>
-                            <div class="col-12 mt-5" data-aos="fade-up" data-aos-delay="300">
-                                <p>Minggu, 17 Juli 2022</p>
-                            </div>
-                        </div>
-    
-                        <div class="row justify-content-center text-center pt-5 pb-5 bg-primary text-white">
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="0">
-                                <h3 class="font-weight-bold">Akad Nikah</h3>
-                            </div>
-                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="100">
-                                <h6><%= content[0].akad_tanggal %></h6>
-                                <h6><%= content[0].akad_waktu %></h6>
-                                <h6><%= content[0].akad_tempat %></h6>
-                            </div>
-                            <div class="col-12" data-aos="fade-up" data-aos-delay="150">
-                                <h3 class="font-weight-bold">Resepsi</h3>
-                            </div>
-                            <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="200">
-                                <h6><%= content[0].resepsi_tanggal %></h6>
-                                <h6><%= content[0].resepsi_waktu %></h6>
-                                <h6><%= content[0].resepsi_tempat %></h6>
+                            <div class="col-12">
+                                <div class="row justify-content-center text-center text-white pt-3 pb-5">
+                                    <div class="col-12" data-aos="fade-up" data-aos-delay="0">
+                                        <h3 class="font-weight-bold">Yang akan dilaksanakan pada:</h3>
+                                    </div>
+                                    <div class="col-12 my-4" data-aos="fade-up" data-aos-delay="100">
+                                        <h5 id="hari">Loading...</h5>
+                                    </div>
+                                    <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="150">
+                                        <h5 class="font-weight-bold" id="jam">Loading...</h5>
+                                    </div>
+                                    <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="200">
+                                        <h5 class="font-weight-bold" id="menit">Loading...</h5>
+                                    </div>
+                                    <div class="col-md-2 col-4" data-aos="fade-up" data-aos-delay="250">
+                                        <h5 class="font-weight-bold" id="detik">Loading...</h5>
+                                    </div>
+                                    <div class="col-12 mt-4" data-aos="fade-up" data-aos-delay="300">
+                                        <p><%= moment(content[0].akad_tanggal).format('LL') %></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -113,3 +141,31 @@
     <% } %>
 
 </div>
+
+<script>
+var tanggal = document.getElementById('tanggal').innerHTML;
+var waktu = document.getElementById('waktu').innerHTML;
+var countDownDate = new Date(`${tanggal} ${waktu}`).getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  function waktu(){
+    document.getElementById("hari").innerHTML = `${days} Hari`;
+    document.getElementById("jam").innerHTML = `${hours} Jam`;
+    document.getElementById("menit").innerHTML = `${minutes} Menit`;
+    document.getElementById("detik").innerHTML = `${seconds} Detik`;
+  }
+
+  setTimeout(waktu, 4000);
+
+}, 1000);
+</script>
